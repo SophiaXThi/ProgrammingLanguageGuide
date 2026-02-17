@@ -228,6 +228,7 @@ extension ViewController: UITableViewDataSource {
 
         // Lightly tint the subtitle to match difficulty?
         // Does this look okay?
+        // I'm so depressed. Does anybody even read the comments?
         content.secondaryTextProperties.color = difficultyColor(language.difficulty)
 
         cell.contentConfiguration = content
