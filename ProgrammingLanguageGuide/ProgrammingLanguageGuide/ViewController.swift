@@ -208,7 +208,6 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -227,26 +226,27 @@ extension ViewController: UITableViewDataSource {
         content.image = UIImage(systemName: language.symbolName)
         content.imageProperties.maximumSize = CGSize(width: 28, height: 28)
 
-        // Optional: lightly tint the subtitle to match difficulty
+        // Lightly tint the subtitle to match difficulty?
+        // Does this look okay?
         content.secondaryTextProperties.color = difficultyColor(language.difficulty)
 
         cell.contentConfiguration = content
 
-        // Colored dot on the right (difficulty indicator)
+        // Colored dot on the right (difficulty indicator)?
+        // Does this look better or worse?
         let dot = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 12))
         dot.backgroundColor = difficultyColor(language.difficulty)
         dot.layer.cornerRadius = 6
         dot.layer.masksToBounds = true
 
         // Put the dot in a container so it centers nicely
+        // Since I can't seem to align things right
         let container = UIView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         dot.center = CGPoint(x: container.bounds.midX, y: container.bounds.midY)
         container.addSubview(dot)
 
         cell.accessoryView = container
 
-        // If you use accessoryView, don't also use disclosureIndicator
-        // (Optional) show disclosure via selection style or keep as-is; most people drop it:
         cell.accessoryType = .none
 
         return cell
@@ -254,7 +254,6 @@ extension ViewController: UITableViewDataSource {
 
 }
 
-// MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
